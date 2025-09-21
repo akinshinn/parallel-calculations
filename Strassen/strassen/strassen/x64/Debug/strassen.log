@@ -1,0 +1,5 @@
+﻿  strassen.cpp
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(57,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(70,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(79,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  strassen.vcxproj -> C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\x64\Debug\strassen.exe

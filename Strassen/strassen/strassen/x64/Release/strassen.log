@@ -1,0 +1,10 @@
+﻿  strassen.cpp
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(57,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(70,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\strassen\strassen.cpp(79,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода
+  2 of 91 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  strassen.vcxproj -> C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Strassen\strassen\x64\Release\strassen.exe
