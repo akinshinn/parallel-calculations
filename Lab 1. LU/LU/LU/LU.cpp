@@ -6,7 +6,7 @@
 
 using namespace std;    
 
-const int n = 5;
+const int n =10;
 
 void fill(
     std::vector<double>& A,
@@ -82,15 +82,52 @@ void LU(vector<double>& A) {
     }
 }
 
+void ProductLU(const vector<double>& A, vector<double>& res) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i <= j) {
+                for (int k = 0; k < i; k++) {
+                    //res[i][j] += A[i][k] * A[k][j];
+                    res[i * n + j] += A[i * n + k] * A[k * n + j];
+                }
+                res[i * n + j] += A[i * n + j];
+            }
+            else {
+                for (int k = 0; k <= j; k++) {
+                    //res[i][j] += A[i][k] * A[k][j];
+                    res[i * n + j] += A[i * n + k] * A[k * n + j];
+                }
+            }
+        }
+    }
+
+}
+
+
+void Residual(const vector<double>& A, vector<double>& LU) {
+    vector<double> productLU(n * n);
+    ProductLU(LU, productLU);
+    double maxRes = -1;
+    double minRes = 1e17;
+
+    for (int i = 0; i < n * n; i++) {
+        maxRes = max(maxRes, abs(productLU[i] - A[i]));
+        minRes = min(minRes, abs(productLU[i] - A[i]));
+    }
+    cout << "maxRes = " << maxRes << ", minRes = " << minRes << endl;
+}
+
 int main()
 {
-    vector<double> A(n * n);
+    vector<double> A(n * n), copymatrixA(n*n), productLU(n * n), raznost(n*n);
     fill(A);
+    fill(copymatrixA);
 
     DisplayFlattenMatrix(A);
 
     LU(A);
 
     DisplayFlattenMatrix(A);
+    Residual(copymatrixA, A);
 }
 
