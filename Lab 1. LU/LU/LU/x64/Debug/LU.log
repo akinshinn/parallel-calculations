@@ -1,0 +1,5 @@
+﻿  LU.cpp
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Lab 1. LU\LU\LU\LU.cpp(44,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Lab 1. LU\LU\LU\LU.cpp(57,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Lab 1. LU\LU\LU\LU.cpp(65,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  LU.vcxproj -> C:\Users\mouze\Desktop\Параллельные вычисленияЛР\Lab 1. LU\LU\x64\Debug\LU.exe

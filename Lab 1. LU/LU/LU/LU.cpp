@@ -1,20 +1,96 @@
-﻿// LU.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <vector>
+#include <cmath>
+#include <chrono>
 
-#include <iostream>
+
+using namespace std;    
+
+const int n = 5;
+
+void fill(
+    std::vector<double>& A,
+    std::vector<double>& B)
+{
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+        {
+            A[i * n + j] = cos(i + j);
+            B[i * n + j] = sin(i - j);
+        }
+}
+
+
+void fill(
+    std::vector<double>& A)
+{
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+        {
+            A[i * n + j] = cos(i + j);
+        }
+}
+
+
+void zero(std::vector<double>& A)
+{
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+            A[i * n + j] = 0.0;
+}
+
+
+void DisplayFlattenMatrix(const vector<double>& A) {
+    int n = sqrt(A.size());
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << A[n * i + j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+
+void FlattenMatrixDiff(const vector<double>& A, const vector<double>& B, vector<double>& res) {
+    int n = A.size();
+    for (int i = 0; i < n; i++) {
+        res[i] = A[i] - B[i];
+    }
+}
+
+
+void FlattenMatrixSum(const vector<double>& A, const vector<double>& B, vector<double>& res) {
+    int n = A.size();
+    for (int i = 0; i < n; ++i) {
+        res[i] = A[i] + B[i];
+    }
+}
+
+void LU(vector<double>& A) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            A[j * n + i] /= A[i * n + i];
+        }
+
+        for (int j = i + 1; j < n; j++) {
+            for (int k = i + 1; k < n; k++) {
+                A[j * n + k] -= A[j * n + i] * A[i * n + k];
+            }
+        }
+    }
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    vector<double> A(n * n);
+    fill(A);
+
+    DisplayFlattenMatrix(A);
+
+    LU(A);
+
+    DisplayFlattenMatrix(A);
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
